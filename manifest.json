@@ -1,0 +1,9 @@
+{
+"name":"ไตรภูมิพระร่วง ม.6",
+"short_name":"ไตรภูมิ",
+"start_url":"./",
+"display":"standalone",
+"background_color":"#FBF7EF",
+"theme_color":"#8B6420",
+"icons":[{"src":"logo.jpg","sizes":"192x192","type":"image/jpeg"}]
+}

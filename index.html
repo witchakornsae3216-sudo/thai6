@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ไตรภูมิพระร่วง ตอน มนุสสภูมิ — สื่อการสอนภาษาไทย ม.6</title>
+<link href="https://fonts.googleapis.com/css2?family=Sarabun:wght@300;400;500;600;700&family=Noto+Serif+Thai:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C8963E;
+    --gold-light: #F5E6C8;
+    --gold-dark: #8B6420;
+    --burgundy: #6B1F2A;
+    --cream: #FBF7EF;
+    --dark: #2C1810;
+    --text: #3D2B1F;
+    --text-light: #7A5C4A;
+    --border: rgba(200,150,62,0.25);
+    --section-bg: #FFFDF8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Sarabun', sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 16px;
+  }
+
+  /* HEADER */
+  .hero {
+    background: var(--burgundy);
+    color: #fff;
+    text-align: center;
+    padding: 3rem 2rem 2.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(200,150,62,0.06) 40px,
+      rgba(200,150,62,0.06) 80px
+    );
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(200,150,62,0.2);
+    border: 1px solid rgba(200,150,62,0.5);
+    color: var(--gold-light);
+    font-size: 13px;
+    padding: 4px 16px;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    letter-spacing: 1px;
+  }
+  .hero h1 {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--gold-light);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.3);
+    line-height: 1.3;
+  }
+  .hero h2 {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: rgba(255,255,255,0.8);
+    margin-top: 0.5rem;
+  }
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1.5rem;
+    flex-wrap: wrap;
+  }
+  .hero-meta span {
+    font-size: 13px;
+    color: rgba(255,255,255,0.65);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .hero-meta strong { color: var(--gold-light); }
+
+  /* NAV */
+  .nav {
+    background: var(--dark);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+  .nav a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    padding: 0.75rem 1.25rem;
+    font-size: 14px;
+    transition: all 0.2s;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+  }
+  .nav a:hover {
+    color: var(--gold-light);
+    border-bottom-color: var(--gold);
+    background: rgba(200,150,62,0.1);
+  }
+
+  /* MAIN */
+  main { max-width: 960px; margin: 0 auto; padding: 0 1.5rem 4rem; }
+
+  /* SECTIONS */
+  .section { padding: 3rem 0 2rem; border-bottom: 1px solid var(--border); }
+  .section:last-child { border-bottom: none; }
+  .section-title {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--burgundy);
+    margin-bottom: 1.5rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .section-title .icon {
+    width: 36px; height: 36px;
+    background: var(--gold-light);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  /* AUTHOR CARD */
+  .author-card {
+    background: linear-gradient(135deg, #FBF7EF 0%, #F5E6C8 100%);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+  .author-avatar {
+    width: 80px; height: 80px;
+    background: var(--burgundy);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+    font-size: 2rem;
+  }
+  .author-card h3 {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 1.2rem;
+    color: var(--burgundy);
+    margin-bottom: 0.5rem;
+  }
+  .tag {
+    display: inline-block;
+    background: var(--burgundy);
+    color: #fff;
+    font-size: 12px;
+    padding: 2px 10px;
+    border-radius: 10px;
+    margin: 2px;
+  }
+
+  /* INFO GRID */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .info-card {
+    background: var(--section-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: box-shadow 0.2s;
+  }
+  .info-card:hover { box-shadow: 0 4px 16px rgba(200,150,62,0.15); }
+  .info-card-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+  .info-card h4 { font-size: 14px; color: var(--text-light); font-weight: 500; margin-bottom: 4px; }
+  .info-card p { font-size: 15px; color: var(--text); line-height: 1.6; }
+
+  /* THREE WORLDS */
+  .worlds-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin: 2rem 0;
+  }
+  .world-tier {
+    width: 100%;
+    max-width: 700px;
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    margin-bottom: 2px;
+    cursor: pointer;
+    transition: transform 0.2s, box-shadow 0.2s;
+    position: relative;
+  }
+  .world-tier:hover { transform: scale(1.01); box-shadow: 0 6px 20px rgba(0,0,0,0.12); }
+  .world-tier.arupa { background: #2C1810; color: #F5E6C8; border-radius: 12px 12px 0 0; }
+  .world-tier.rupa { background: var(--burgundy); color: #fff; }
+  .world-tier.kama { background: var(--gold); color: var(--dark); border-radius: 0 0 12px 12px; }
+  .world-tier h3 { font-family: 'Noto Serif Thai', serif; font-size: 1.3rem; font-weight: 700; }
+  .world-tier p { font-size: 14px; opacity: 0.85; margin-top: 4px; }
+  .world-tier .sub-list { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+  .sub-badge {
+    font-size: 12px;
+    padding: 3px 10px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+  }
+  .world-tier.kama .sub-badge { background: rgba(0,0,0,0.1); border-color: rgba(0,0,0,0.15); }
+
+  /* HEAVEN LEVELS */
+  .heaven-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .heaven-card {
+    background: var(--section-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    border-top: 3px solid var(--gold);
+    transition: box-shadow 0.2s;
+  }
+  .heaven-card:hover { box-shadow: 0 4px 16px rgba(200,150,62,0.2); }
+  .heaven-num {
+    display: inline-block;
+    width: 28px; height: 28px;
+    background: var(--gold);
+    color: var(--dark);
+    border-radius: 50%;
+    text-align: center;
+    line-height: 28px;
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 8px;
+  }
+  .heaven-card h4 { font-family: 'Noto Serif Thai', serif; font-size: 1.05rem; color: var(--burgundy); margin-bottom: 6px; }
+  .heaven-card p { font-size: 14px; color: var(--text-light); line-height: 1.6; }
+
+  /* DEVELOPMENT TIMELINE */
+  .timeline { position: relative; padding-left: 2rem; margin-top: 1.5rem; }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 10px; top: 0; bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), var(--burgundy));
+    border-radius: 2px;
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -6px; top: 6px;
+    width: 12px; height: 12px;
+    border-radius: 50%;
+    background: var(--gold);
+    border: 2px solid var(--cream);
+    box-shadow: 0 0 0 2px var(--gold);
+  }
+  .timeline-day {
+    display: inline-block;
+    background: var(--gold-light);
+    color: var(--gold-dark);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 2px 10px;
+    border-radius: 8px;
+    margin-bottom: 4px;
+  }
+  .timeline-item h4 { font-size: 15px; font-weight: 600; color: var(--burgundy); }
+  .timeline-item p { font-size: 14px; color: var(--text-light); }
+
+  /* QUOTE BOX */
+  .quote-box {
+    background: var(--section-bg);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--burgundy);
+    border-radius: 0 12px 12px 0;
+    padding: 1.25rem 1.5rem;
+    margin: 1rem 0;
+    position: relative;
+  }
+  .quote-box::before {
+    content: '❝';
+    position: absolute;
+    top: -10px; left: 12px;
+    font-size: 2.5rem;
+    color: var(--gold);
+    line-height: 1;
+  }
+  .quote-text {
+    font-family: 'Noto Serif Thai', serif;
+    font-size: 1rem;
+    color: var(--text);
+    padding-top: 0.75rem;
+    line-height: 2;
+  }
+  .quote-meaning { font-size: 14px; color: var(--text-light); margin-top: 8px; border-top: 1px dashed var(--border); padding-top: 8px; }
+
+  /* VALUE SECTION */
+  .value-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  .value-card {
+    background: var(--section-bg);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 1.25rem;
+    transition: all 0.2s;
+  }
+  .value-card:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(0,0,0,0.08); }
+  .value-card-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+  .value-icon {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 20px;
+    flex-shrink: 0;
+  }
+  .value-card h4 { font-size: 15px; font-weight: 600; color: var(--burgundy); }
+  .value-card ul { list-style: none; padding: 0; }
+  .value-card ul li { font-size: 14px; color: var(--text-light); padding: 4px 0 4px 16px; position: relative; line-height: 1.6; }
+  .value-card ul li::before { content: '▸'; position: absolute; left: 0; color: var(--gold); }
+
+  /* QUIZ */
+  .quiz-section { background: #FBF7EF; border-radius: 16px; padding: 2rem; border: 1px solid var(--border); }
+  .quiz-title { font-family: 'Noto Serif Thai', serif; font-size: 1.4rem; color: var(--burgundy); margin-bottom: 1.5rem; text-align: center; }
+  .question-block { margin-bottom: 1.5rem; }
+  .question-num { font-size: 13px; color: var(--gold-dark); font-weight: 600; margin-bottom: 4px; }
+  .question-text { font-size: 15px; font-weight: 500; color: var(--text); margin-bottom: 10px; }
+  .options { display: flex; flex-direction: column; gap: 6px; }
+  .option {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: left;
+    color: var(--text);
+  }
+  .option:hover { border-color: var(--gold); background: var(--gold-light); }
+  .option.correct { background: #EAF6EC; border-color: #4CAF50; color: #2E7D32; }
+  .option.wrong { background: #FDECEA; border-color: #EF5350; color: #C62828; }
+  .option:disabled { cursor: default; }
+  .feedback { font-size: 14px; margin-top: 8px; padding: 8px 12px; border-radius: 8px; display: none; }
+  .feedback.show { display: block; }
+  .feedback.correct-fb { background: #EAF6EC; color: #2E7D32; }
+  .feedback.wrong-fb { background: #FDECEA; color: #C62828; }
+  .quiz-score {
+    text-align: center;
+    padding: 1.5rem;
+    background: var(--gold-light);
+    border-radius: 12px;
+    display: none;
+    margin-top: 1rem;
+  }
+  .quiz-score.show { display: block; }
+  .quiz-score .score-num { font-size: 3rem; font-weight: 700; color: var(--burgundy); }
+  .quiz-score p { font-size: 15px; color: var(--text-light); margin-top: 4px; }
+  .btn-check {
+    display: block;
+    margin: 1.5rem auto 0;
+    background: var(--burgundy);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 12px 32px;
+    font-size: 15px;
+    font-family: 'Sarabun', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-check:hover { background: #8B1F2A; }
+  .btn-reset {
+    display: none;
+    margin: 1rem auto 0;
+    background: var(--gold);
+    color: var(--dark);
+    border: none;
+    border-radius: 8px;
+    padding: 10px 28px;
+    font-size: 14px;
+    font-family: 'Sarabun', sans-serif;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .btn-reset:hover { background: var(--gold-dark); color: #fff; }
+  .btn-reset.show { display: block; }
+
+  /* SON TYPES */
+  .son-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+  @media (max-width: 600px) { .son-grid { grid-template-columns: 1fr; } }
+  .son-card {
+    border-radius: 12px;
+    padding: 1.25rem;
+    text-align: center;
+  }
+  .son-card.best { background: #FFF9E6; border: 2px solid var(--gold); }
+  .son-card.mid { background: #F0F8FF; border: 2px solid #89B4D5; }
+  .son-card.low { background: #FFF0F0; border: 2px solid #D58989; }
+  .son-card .son-thai { font-family: 'Noto Serif Thai', serif; font-size: 1.1rem; font-weight: 700; }
+  .son-card .son-en { font-size: 13px; margin: 4px 0 8px; }
+  .son-card p { font-size: 14px; line-height: 1.6; color: var(--text-light); }
+
+  /* FOOTER */
+  footer {
+    background: var(--dark);
+    color: rgba(255,255,255,0.5);
+    text-align: center;
+    padding: 1.5rem;
+    font-size: 13px;
+  }
+  footer strong { color: var(--gold-light); }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .author-card { flex-direction: column; }
+    .hero-meta { gap: 1rem; }
+    .nav a { padding: 0.6rem 0.8rem; font-size: 13px; }
+  }
+
+  /* PRINT */
+  @media print {
+    .nav { display: none; }
+    .quiz-section { break-inside: avoid; }
+  }
+</style>
+
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#8B6420">
+<script>
+if ('serviceWorker' in navigator) {
+ window.addEventListener('load', ()=>navigator.serviceWorker.register('./sw.js'));
+}
+</script>
+
+</head>
+<body>
+
+
+<div class="hero" style="background:linear-gradient(135deg,#4e2f16,#8b6420,#d4af37);">
+<div style="display:flex;justify-content:center;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:15px;">
+<img src="logo.jpg" style="width:90px;height:auto;border-radius:50%;background:white;padding:6px;">
+<div>
+<div class="hero-badge">โรงเรียนเสลภูมิพิทยาคม</div>
+<h1>ไตรภูมิพระร่วง</h1>
+<h2>ตอน มนุสสภูมิ</h2>
+<div style="color:#fff;font-weight:600">ครูวิชชากร แสงเพชรอ่อน</div>
+</div>
+</div>
+
+  <div class="hero-badge">วรรณคดี สมัยสุโขทัย</div>
+  <h1>ไตรภูมิพระร่วง</h1>
+  <h2>ตอน มนุสสภูมิ</h2>
+  <div class="hero-meta">
+    <span>📚 <strong>ภาษาไทย ม.6</strong></span>
+    <span>✍️ พระมหาธรรมราชาที่ ๑ (พระยาลิไทย)</span>
+    <span>📜 ลักษณะ: ร้อยแก้วความเรียง</span>
+  </div>
+  <div style="margin-top:1.25rem; display:inline-block; background:rgba(200,150,62,0.15); border:1px solid rgba(200,150,62,0.4); border-radius:10px; padding:8px 20px;">
+    <span style="font-size:13px; color:rgba(255,255,255,0.6);">ครูผู้สอน</span>
+    <span style="font-size:15px; font-weight:600; color:var(--gold-light); margin-left:8px;">นายวิชชากร แสงเพชรอ่อน</span>
+  </div>
+</div>
+
+<nav class="nav">
+  <a href="#author">ผู้แต่ง</a>
+  <a href="#overview">ภาพรวม</a>
+  <a href="#three-worlds">โลกทั้ง ๓</a>
+  <a href="#story">เนื้อเรื่อง</a>
+  <a href="#development">การเกิด</a>
+  <a href="#continents">๔ ทวีป</a>
+  <a href="#hell">นรก</a>
+  <a href="#value">คุณค่า</a>
+  <a href="#quiz">แบบทดสอบ</a>
+</nav>
+
+<main>
+
+  <!-- AUTHOR -->
+  <section class="section" id="author">
+    <h2 class="section-title"><span class="icon">👑</span>ผู้แต่ง</h2>
+    <div class="author-card">
+      <div class="author-avatar">👑</div>
+      <div>
+        <h3>พระมหาธรรมราชาที่ ๑ (พระยาลิไทหรือพระยาลือไทย)</h3>
+        <div style="margin: 8px 0;">
+          <span class="tag">กษัตริย์องค์ที่ ๖ ของสุโขทัย</span>
+          <span class="tag">ราชวงศ์พระร่วง</span>
+          <span class="tag">ธรรมราชา</span>
+        </div>
+        <p style="font-size:15px; margin-top:10px; line-height:1.8;">
+          พระโอรสในพระยาเลอไทย และพระราชนัดดาของ<strong>พ่อขุนรามคำแหงมหาราช</strong>
+          ทรงเป็นกษัตริย์ที่ปกครองประชาชนในฐานะธรรมราชา ยึดมั่นในหลักธรรมของพระพุทธศาสนาอย่างเคร่งครัด
+        </p>
+      </div>
+    </div>
+    <div class="info-grid">
+      <div class="info-card">
+        <div class="info-card-icon">🎯</div>
+        <h4>จุดประสงค์ในการแต่ง</h4>
+        <p>เทศนาโปรดพระมารดา เป็นการเจริญธรรมกตัญญู และสั่งสอนประชาชนให้มีคุณธรรม เข้าใจพุทธศาสนา</p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">📝</div>
+        <h4>ลักษณะคำประพันธ์</h4>
+        <p>ร้อยแก้วประเภทความเรียง มีสัมผัสคล้องจอง ใช้ทั้ง<em>เทศนาโวหาร</em>, <em>พรรณนาโวหาร</em> และ<em>บรรยายโวหาร</em></p>
+      </div>
+      <div class="info-card">
+        <div class="info-card-icon">💡</div>
+        <h4>แก่นของเรื่อง</h4>
+        <p>ชี้ให้เห็นคุณและโทษของโลกทั้ง ๓ ที่ไม่แน่นอน และนำทางให้มนุษย์พ้นไปสู่ <strong>โลกุตรภูมิ</strong> หรือนิพพาน</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- THREE WORLDS -->
+  <section class="section" id="three-worlds">
+    <h2 class="section-title"><span class="icon">🌍</span>โลกทั้ง ๓ (ไตรภูมิ)</h2>
+    <p style="margin-bottom:1.5rem; color:var(--text-light);">
+      <strong>ไตร</strong> = สาม &nbsp;|&nbsp; <strong>ภูมิ</strong> = แผ่นดิน ดินแดน &nbsp;|&nbsp;
+      <strong>ไตรภูมิ</strong> = โลกทั้งสาม ตามความเชื่อในพระพุทธศาสนา
+    </p>
+    <div class="worlds-diagram">
+      <div class="world-tier arupa">
+        <h3>๓. อรูปภูมิ (อรูปาวจรภูมิ)</h3>
+        <p>แดนของพรหมไม่มีรูป มีแต่จิตเท่านั้น — แบ่งเป็น ๔ ชั้น</p>
+        <div class="sub-list">
+          <span class="sub-badge">สูงสุด</span>
+          <span class="sub-badge">มีแต่จิต</span>
+          <span class="sub-badge">ไม่มีรูปร่าง</span>
+        </div>
+      </div>
+      <div class="world-tier rupa">
+        <h3>๒. รูปภูมิ (รูปาวจรภูมิ)</h3>
+        <p>ที่อยู่ของรูปพรหม ไม่มีเพศ รูปงามบริสุทธิ์ มีแสงสว่างรุ่งเรือง มีทั้งหมด ๑๖ ชั้น (โสฬสพรหม)</p>
+        <div class="sub-list">
+          <span class="sub-badge">รูปพรหม</span>
+          <span class="sub-badge">๑๖ ชั้น</span>
+          <span class="sub-badge">ไม่มีเพศ</span>
+        </div>
+      </div>
+      <div class="world-tier kama">
+        <h3>๑. กามภูมิ</h3>
+        <p>ที่กำเนิดของชีวิตที่ยังหลงในกาม แบ่งเป็น สุคติภูมิ (ฝ่ายดี) และ อบายภูมิ (ฝ่ายชั่ว)</p>
+        <div class="sub-list">
+          <span class="sub-badge">มนุษย์</span>
+          <span class="sub-badge">สวรรค์ ๖ ชั้น</span>
+          <span class="sub-badge">นรก</span>
+          <span class="sub-badge">เดรัจฉาน</span>
+          <span class="sub-badge">เปรต</span>
+          <span class="sub-badge">อสูรกาย</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-family:'Noto Serif Thai',serif; font-size:1.2rem; color:var(--burgundy); margin:2rem 0 0.5rem;">สวรรค์ทั้ง ๖ ชั้น (สุคติภูมิ)</h3>
+    <div class="heaven-grid">
+      <div class="heaven-card">
+        <div class="heaven-num">๑</div>
+        <h4>จาตุมหาราชิกา</h4>
+        <p>อยู่รอบเขาพระสุเมรุ แบ่งเป็น ๔ อาณาบริเวณ มีท้าวโลกบาลทั้ง ๔ ปกครอง อายุเทวดา ๙ ล้านปีมนุษย์</p>
+      </div>
+      <div class="heaven-card">
+        <div class="heaven-num">๒</div>
+        <h4>ดาวดึงส์</h4>
+        <p>ที่อยู่ของพระอินทร์ (ท้าวสักกะ) มีบริวาร ๓๒ องค์ มีช้างไอยราพต พระมหาจุฬามณีเจดีย์</p>
+      </div>
+      <div class="heaven-card">
+        <div class="heaven-num">๓</div>
+        <h4>ยามา</h4>
+        <p>อยู่สูงกว่าวงโคจรดวงอาทิตย์และดวงจันทร์ เทวดาเห็นกันด้วยรัศมีของตนเอง ปกครองโดย ท้าวสุยามะ</p>
+      </div>
+      <div class="heaven-card">
+        <div class="heaven-num">๔</div>
+        <h4>ดุสิต</h4>
+        <p>ที่ประทับของพระโพธิสัตว์และว่าที่พระพุทธบิดา-มารดา ปกครองโดย ท้าวสันดุสิต</p>
+      </div>
+      <div class="heaven-card">
+        <div class="heaven-num">๕</div>
+        <h4>นิมมานรดี</h4>
+        <p>เทวดาสามารถเนรมิตสิ่งของตามประสงค์ได้ ปกครองโดย ท้าวสุนิมมิต</p>
+      </div>
+      <div class="heaven-card">
+        <div class="heaven-num">๖</div>
+        <h4>ปรนิมมิตวสวัตดี</h4>
+        <p>สวรรค์ชั้นประเสริฐที่สุด ปกครองโดย ท้าววสวัตตี (เทพบุตรมาร)</p>
+      </div>
+    </div>
+
+    <div style="margin-top:2rem; background:var(--section-bg); border:1px solid var(--border); border-radius:12px; padding:1.5rem;">
+      <h3 style="font-family:'Noto Serif Thai',serif; font-size:1.2rem; color:var(--burgundy); margin-bottom:1rem;">อบายภูมิ — ดินแดนฝ่ายชั่ว</h3>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(180px,1fr)); gap:0.75rem;">
+        <div style="text-align:center; padding:1rem; background:#FFF0F0; border-radius:10px; border:1px solid #F0B0B0;">
+          <div style="font-size:1.5rem; margin-bottom:4px;">🔥</div>
+          <strong style="color:#8B1F2A;">นรกภูมิ</strong>
+          <p style="font-size:13px; color:var(--text-light);">ดินแดนสัตว์นรก</p>
+        </div>
+        <div style="text-align:center; padding:1rem; background:#FFF5E6; border-radius:10px; border:1px solid #F0C880;">
+          <div style="font-size:1.5rem; margin-bottom:4px;">🐾</div>
+          <strong style="color:var(--gold-dark);">เดรัจฉานภูมิ</strong>
+          <p style="font-size:13px; color:var(--text-light);">ดินแดนสัตว์เดรัจฉาน</p>
+        </div>
+        <div style="text-align:center; padding:1rem; background:#F5F0FA; border-radius:10px; border:1px solid #C8B0E0;">
+          <div style="font-size:1.5rem; margin-bottom:4px;">👻</div>
+          <strong style="color:#5A1F8B;">เปรตภูมิ</strong>
+          <p style="font-size:13px; color:var(--text-light);">ดินแดนของเปรต</p>
+        </div>
+        <div style="text-align:center; padding:1rem; background:#EFF5E6; border-radius:10px; border:1px solid #A0C880;">
+          <div style="font-size:1.5rem; margin-bottom:4px;">👹</div>
+          <strong style="color:#2E6B1F;">อสูรกายภูมิ</strong>
+          <p style="font-size:13px; color:var(--text-light);">ดินแดนยักษ์มาร</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STORY -->
+  <section class="section" id="story">
+    <h2 class="section-title"><span class="icon">📖</span>เรื่องย่อ ตอน มนุสสภูมิ</h2>
+    <p style="margin-bottom:1.5rem; color:var(--text-light); font-size:15px;">
+      ตอนนี้กล่าวถึงการเกิดของมนุษย์ ชีวิตในครรภ์มารดา และความลำบากในการคลอด
+      เพื่อสะท้อนให้เห็นว่า<strong>ชีวิตมนุษย์เต็มไปด้วยความทุกข์ตั้งแต่แรกเกิด</strong>
+    </p>
+
+    <div class="quote-box">
+      <p class="quote-text">กุมารนั้นนั่งกลางท้องแม่ แลเอาหลังมาต่อหนังท้องแม่ กำมือทั้งสองแน่น ไม่ได้หายใจ ไม่ได้เหยียดมือและเท้า ต้องเจ็บปวดเหมือนถูกขังไว้ในไหหรือที่คับแคบ</p>
+      <p class="quote-meaning">ความหมาย: ทารกในครรภ์ต้องอยู่ในที่คับแคบ ร้อนและอึดอัด คล้ายถูกขังในไห สะท้อน "ทุกขลักษณะ" ของชีวิตมนุษย์</p>
+    </div>
+
+    <div class="quote-box">
+      <p class="quote-text">ผิแลคนอันมาแต่นรกก็ดี แลมาแต่เปรตก็ดี มันคำนึงถึงความอันลำบากนั้น ครั้นออกมาก็ร้องไห้แล ผิแลคนผู้มาแต่สวรรค์ แลคำนึงถึงความสุขแต่ก่อนนั้น ครั้นว่าออกมาไสร้ ก็ย่อมหัวร่อก่อนแล</p>
+      <p class="quote-meaning">ความหมาย: ทารกจากนรก/เปรต — ร้องไห้เมื่อคลอด | ทารกจากสวรรค์ — หัวเราะเมื่อคลอด เป็นภาพพจน์สะท้อนความเชื่อเรื่องกฎแห่งกรรม</p>
+    </div>
+
+    <h3 style="font-family:'Noto Serif Thai',serif; font-size:1.2rem; color:var(--burgundy); margin:2rem 0 1rem;">ประเภทของบุตร ๓ จำพวก</h3>
+    <div class="son-grid">
+      <div class="son-card best">
+        <div style="font-size:2rem;">⭐</div>
+        <div class="son-thai">อภิชาตบุตร</div>
+        <div class="son-en" style="color:var(--gold-dark);">บุตรที่ประเสริฐกว่า</div>
+        <p>ฉลาดเฉลียว รูปงาม มั่งมี หรือมียศยิ่งกว่าบิดามารดา</p>
+      </div>
+      <div class="son-card mid">
+        <div style="font-size:2rem;">🟰</div>
+        <div class="son-thai">อนุชาตบุตร</div>
+        <div class="son-en" style="color:#1F6B8B;">บุตรที่เสมอกัน</div>
+        <p>มีคุณสมบัติเท่าเทียมบิดามารดา ไม่ดีกว่าและไม่ด้อยกว่า</p>
+      </div>
+      <div class="son-card low">
+        <div style="font-size:2rem;">📉</div>
+        <div class="son-thai">อวชาตบุตร</div>
+        <div class="son-en" style="color:#8B1F1F;">บุตรที่ด้อยกว่า</div>
+        <p>มีคุณสมบัติด้อยกว่าบิดามารดา ทั้งในด้านความสามารถและคุณธรรม</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEVELOPMENT -->
+  <section class="section" id="development">
+    <h2 class="section-title"><span class="icon">🌱</span>ลำดับการเจริญเติบโตในครรภ์</h2>
+    <p style="margin-bottom:1.5rem; color:var(--text-light); font-size:15px;">ไตรภูมิพระร่วงบรรยายพัฒนาการของทารกในครรภ์อย่างละเอียด ซึ่งสอดคล้องกับความรู้ทางการแพทย์สมัยใหม่อย่างน่าอัศจรรย์</p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <span class="timeline-day">ปฏิสนธิ</span>
+        <h4>กลละ</h4>
+        <p>รูปเริ่มแรกเล็กมาก ขนาดเศษ ๑ ส่วน ๒๕๖ ของเส้นผม — จุดเริ่มต้นของชีวิต</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-day">๗ วัน</span>
+        <h4>อัมพุทะ</h4>
+        <p>รูปคล้ายน้ำล้างเนื้อ — ขยายใหญ่ขึ้นทุกวัน</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-day">๑๔ วัน</span>
+        <h4>เปสิ</h4>
+        <p>ข้นเป็นชิ้นเนื้อ คล้ายตะกั่วที่เชื่อมอยู่ในหม้อ</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-day">๒๑ วัน</span>
+        <h4>ฆนะ</h4>
+        <p>แข็งเป็นก้อนเนื้อ ขนาดเท่าไข่ไก่</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-day">๒๘ วัน</span>
+        <h4>เบญจสาขาหูด</h4>
+        <p>เกิดปุ่ม ๕ แห่ง ได้แก่ หัว ๑ แขน ๒ ขา ๒ — ครบรูปร่างมนุษย์</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-day">๓๕ วัน</span>
+        <h4>ฝ่ามือ นิ้วมือ</h4>
+        <p>รายละเอียดของมือและนิ้วเริ่มปรากฏ</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-day">๔๒ วัน</span>
+        <h4>เล็บมือ เล็บเท้า</h4>
+        <p>เป็นมนุษย์ครบสมบูรณ์ทุกอวัยวะ</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-day">๑๘๔ วัน (~๖ เดือน)</span>
+        <h4>ทารกสมบูรณ์</h4>
+        <p>นั่งกลางท้องแม่ เอาหลังต่อหนังท้องแม่ รับอาหารผ่านสายสะดือ</p>
+      </div>
+      <div class="timeline-item">
+        <span class="timeline-day">คลอด (๙–๑๒ เดือน)</span>
+        <h4>ลมกรรมชวาต</h4>
+        <p>ลมที่เกิดจากกรรมพัดให้หัวทารกลงมาสู่ทางคลอด — เปรียบดังช้างสารที่ถูกชักออกจากประตูอันคับแคบ</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4 CONTINENTS -->
+  <section class="section" id="continents">
+    <h2 class="section-title"><span class="icon">🌏</span>มนุสสภูมิ — โลกแห่งมนุษย์ ๔ ทวีป</h2>
+    <p style="margin-bottom:1.5rem; color:var(--text-light); font-size:15px;">
+      มนุสสภูมิ คือโลกแห่งมนุษย์ ประกอบด้วยดินแดน <strong>๔ ทวีป</strong> อันมี<strong>เขาพระสุเมรุ</strong>เป็นศูนย์กลางของจักรวาล
+      แต่ละทวีปมีรูปร่าง ลักษณะมนุษย์ ต้นไม้ประจำทวีป และอายุขัยที่แตกต่างกัน
+    </p>
+
+    <!-- Diagram of 4 continents -->
+    <div style="position:relative; max-width:480px; margin:0 auto 2rem; aspect-ratio:1; background:radial-gradient(ellipse at center, #2C3E6B 0%, #1A2540 60%, #0D1528 100%); border-radius:50%; border:3px solid var(--gold); display:flex; align-items:center; justify-content:center;">
+      <!-- Center mountain -->
+      <div style="position:absolute; width:80px; height:80px; background:var(--gold); border-radius:50%; display:flex; align-items:center; justify-content:center; z-index:2; box-shadow:0 0 20px rgba(200,150,62,0.5); text-align:center; flex-direction:column;">
+        <span style="font-size:9px; font-weight:700; color:var(--dark); line-height:1.2;">เขา<br>พระสุเมรุ</span>
+      </div>
+      <!-- North -->
+      <div style="position:absolute; top:8%; left:50%; transform:translateX(-50%); background:#2E4A2E; border:2px solid #5A8A5A; border-radius:8px; padding:8px 12px; text-align:center; min-width:100px;">
+        <div style="font-size:11px; color:#9ECC9E; font-weight:600;">ทิศเหนือ ⬆</div>
+        <div style="font-size:13px; font-weight:700; color:#C8E8C8; margin:2px 0;">อุตตรกุรุทวีป</div>
+        <div style="font-size:10px; color:#9ECC9E;">⬛ รูปสี่เหลี่ยม</div>
+      </div>
+      <!-- South -->
+      <div style="position:absolute; bottom:8%; left:50%; transform:translateX(-50%); background:#4A2E1A; border:2px solid #8A5A2E; border-radius:8px; padding:8px 12px; text-align:center; min-width:100px;">
+        <div style="font-size:11px; color:#CCAA7E; font-weight:600;">ทิศใต้ ⬇</div>
+        <div style="font-size:13px; font-weight:700; color:#F5D5AA; margin:2px 0;">ชมพูทวีป</div>
+        <div style="font-size:10px; color:#CCAA7E;">🥚 รูปไข่</div>
+      </div>
+      <!-- East -->
+      <div style="position:absolute; right:3%; top:50%; transform:translateY(-50%); background:#1A2E4A; border:2px solid #2E5A8A; border-radius:8px; padding:8px 10px; text-align:center; min-width:90px;">
+        <div style="font-size:11px; color:#7EAACC; font-weight:600;">ทิศตะวันออก ➡</div>
+        <div style="font-size:13px; font-weight:700; color:#AAD5F5; margin:2px 0;">บูรพวิเทห<br>ทวีป</div>
+        <div style="font-size:10px; color:#7EAACC;">⭕ รูปวงกลม</div>
+      </div>
+      <!-- West -->
+      <div style="position:absolute; left:3%; top:50%; transform:translateY(-50%); background:#2E1A4A; border:2px solid #5A2E8A; border-radius:8px; padding:8px 10px; text-align:center; min-width:90px;">
+        <div style="font-size:11px; color:#AAAA7E; font-weight:600;">⬅ ทิศตะวันตก</div>
+        <div style="font-size:13px; font-weight:700; color:#D5D5AA; margin:2px 0;">อมรโคยาน<br>ทวีป</div>
+        <div style="font-size:10px; color:#AAAA7E;">🌙 รูปพระจันทร์</div>
+      </div>
+    </div>
+
+    <!-- 4 continent cards -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:1rem;">
+
+      <div style="background:var(--section-bg); border:1px solid var(--border); border-top:4px solid #8B6420; border-radius:12px; padding:1.25rem;">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+          <span style="font-size:1.8rem;">🥚</span>
+          <div>
+            <div style="font-family:'Noto Serif Thai',serif; font-size:1.05rem; font-weight:700; color:var(--burgundy);">ชมพูทวีป</div>
+            <div style="font-size:12px; color:var(--text-light);">ทิศใต้ของเขาพระสุเมรุ</div>
+          </div>
+        </div>
+        <table style="width:100%; font-size:13px; border-collapse:collapse;">
+          <tr><td style="color:var(--text-light); padding:4px 0; width:45%;">รูปร่างทวีป</td><td style="font-weight:500;">กระดุมเกวียน (วงรี)</td></tr>
+          <tr><td style="color:var(--text-light); padding:4px 0;">รูปหน้าชาวทวีป</td><td style="font-weight:500;">รูปไข่</td></tr>
+          <tr><td style="color:var(--text-light); padding:4px 0;">ต้นไม้ประจำทวีป</td><td style="font-weight:500;">ชมพู (ไม้หว้า)</td></tr>
+          <tr><td style="color:var(--text-light); padding:4px 0;">อายุขัย</td><td style="font-weight:500; color:var(--burgundy);">ไม่แน่นอน (ขึ้นอยู่กับบุญกรรม)</td></tr>
+          <tr><td style="color:var(--text-light); padding:4px 0;">ความพิเศษ</td><td style="font-weight:500; color:#1F6B2E;">เป็นที่เกิดของพระพุทธเจ้า พระอรหันต์ และพระจักรพรรดิ</td></tr>
+        </table>
+      </div>
+
+      <div style="background:var(--section-bg); border:1px solid var(--border); border-top:4px solid #185FA5; border-radius:12px; padding:1.25rem;">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+          <span style="font-size:1.8rem;">⭕</span>
+          <div>
+            <div style="font-family:'Noto Serif Thai',serif; font-size:1.05rem; font-weight:700; color:var(--burgundy);">บูรพวิเทหทวีป</div>
+            <div style="font-size:12px; color:var(--text-light);">ทิศตะวันออกของเขาพระสุเมรุ</div>
+          </div>
+        </div>
+        <table style="width:100%; font-size:13px; border-collapse:collapse;">
+          <tr><td style="color:var(--text-light); padding:4px 0; width:45%;">รูปร่างทวีป</td><td style="font-weight:500;">รูปแว่นทึกลม (วงกลม)</td></tr>
+          <tr><td style="color:var(--text-light); padding:4px 0;">รูปหน้าชาวทวีป</td><td style="font-weight:500;">หน้ากลม</td></tr>
+          <tr><td style="color:var(--text-light); padding:4px 0;">ต้นไม้ประจำทวีป</td><td style="font-weight:500;">สิริสะ (ไม้ทรีก/ต้นซึก)</td></tr>
+          <tr><td style="color:var(--text-light); padding:4px 0;">อายุขัย</td><td style="font-weight:500; color:var(--burgundy);">๗๐๐ ปี</td></tr>
+          <tr><td style="color:var(--text-light); padding:4px 0;">ความพิเศษ</td><td style="font-weight:500;">มีสีผิวหลากสี เครื่องนุ่งห่มเครื่องประดับคล้ายชาวชมพูทวีป</td></tr>
+        </table>
+      </div>
+
+      <div style="background:var(--section-bg); border:1px solid var(--border); border-top:4px solid #3B6D11; border-radius:12px; padding:1.25rem;">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+          <span style="font-size:1.8rem;">⬛</span>
+          <div>
+            <div style="font-family:'Noto Serif Thai',serif; font-size:1.05rem; font-weight:700; color:var(--burgundy);">อุตตรกุรุทวีป</div>
+            <div style="font-size:12px; color:var(--text-light);">ทิศเหนือของเขาพระสุเมรุ</div>
+          </div>
+        </div>
+        <table style="width:100%; font-size:13px; border-collapse:collapse;">
+          <tr><td style="color:var(--text-light); padding:4px 0; width:45%;">รูปร่างทวีป</td><td style="font-weight:500;">รูปสี่เหลี่ยม</td></tr>
+          <tr><td style="color:var(--text-light); padding:4px 0;">รูปหน้าชาวทวีป</td><td style="font-weight:500;">หน้ารูปสี่เหลี่ยม</td></tr>
+          <tr><td style="color:var(--text-light); padding:4px 0;">ต้นไม้ประจำทวีป</td><td style="font-weight:500;">กัลปพฤกษ์ (อุตรกุรุ)</td></tr>
+          <tr><td style="color:var(--text-light); padding:4px 0;">อายุขัย</td><td style="font-weight:500; color:var(--burgundy);">๑,๐๐๐ ปี</td></tr>
+          <tr><td style="color:var(--text-light); padding:4px 0;">ความพิเศษ</td><td style="font-weight:500;">ร่างกายงดงาม เป็นหนุ่มสาวอยู่เสมอ ตายแล้วได้ขึ้นสวรรค์ทุกคน</td></tr>
+        </table>
+      </div>
+
+      <div style="background:var(--section-bg); border:1px solid var(--border); border-top:4px solid #5A1F8B; border-radius:12px; padding:1.25rem;">
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+          <span style="font-size:1.8rem;">🌙</span>
+          <div>
+            <div style="font-family:'Noto Serif Thai',serif; font-size:1.05rem; font-weight:700; color:var(--burgundy);">อมรโคยานทวีป</div>
+            <div style="font-size:12px; color:var(--text-light);">ทิศตะวันตกของเขาพระสุเมรุ</div>
+          </div>
+        </div>
+        <table style="width:100%; font-size:13px; border-collapse:collapse;">
+          <tr><td style="color:var(--text-light); padding:4px 0; width:45%;">รูปร่างทวีป</td><td style="font-weight:500;">รูปพระจันทร์ครึ่งดวง</td></tr>
+          <tr><td style="color:var(--text-light); padding:4px 0;">รูปหน้าชาวทวีป</td><td style="font-weight:500;">หน้ารูปพระจันทร์ครึ่งดวง</td></tr>
+          <tr><td style="color:var(--text-light); padding:4px 0;">ต้นไม้ประจำทวีป</td><td style="font-weight:500;">กะทัมพะ (ไม้กระทุ่ม)</td></tr>
+          <tr><td style="color:var(--text-light); padding:4px 0;">อายุขัย</td><td style="font-weight:500; color:var(--burgundy);">๔๐๐ ปี</td></tr>
+          <tr><td style="color:var(--text-light); padding:4px 0;">ความพิเศษ</td><td style="font-weight:500;">แผ่นดินกว้าง ๙,๐๐๐ โยชน์ มีเกาะน้อยเป็นบริวาร</td></tr>
+        </table>
+      </div>
+
+    </div>
+
+    <!-- Summary table -->
+    <div style="margin-top:1.5rem; background:var(--section-bg); border:1px solid var(--border); border-radius:12px; overflow:hidden;">
+      <div style="background:var(--burgundy); color:#fff; padding:0.75rem 1.25rem; font-family:'Noto Serif Thai',serif; font-size:1rem; font-weight:600;">ตารางเปรียบเทียบ ๔ ทวีป</div>
+      <div style="overflow-x:auto;">
+        <table style="width:100%; font-size:13px; border-collapse:collapse;">
+          <thead>
+            <tr style="background:var(--gold-light);">
+              <th style="padding:10px 12px; text-align:left; border-bottom:1px solid var(--border); color:var(--gold-dark);">ทวีป</th>
+              <th style="padding:10px 12px; text-align:left; border-bottom:1px solid var(--border); color:var(--gold-dark);">ทิศ</th>
+              <th style="padding:10px 12px; text-align:left; border-bottom:1px solid var(--border); color:var(--gold-dark);">รูปร่าง</th>
+              <th style="padding:10px 12px; text-align:left; border-bottom:1px solid var(--border); color:var(--gold-dark);">ต้นไม้ประจำทวีป</th>
+              <th style="padding:10px 12px; text-align:left; border-bottom:1px solid var(--border); color:var(--gold-dark);">อายุขัย</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:10px 12px; font-weight:600; color:var(--burgundy);">ชมพูทวีป</td>
+              <td style="padding:10px 12px;">ใต้</td>
+              <td style="padding:10px 12px;">รูปไข่</td>
+              <td style="padding:10px 12px;">ชมพู (ไม้หว้า)</td>
+              <td style="padding:10px 12px; color:var(--burgundy); font-weight:600;">ไม่แน่นอน</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border); background:rgba(200,150,62,0.04);">
+              <td style="padding:10px 12px; font-weight:600; color:var(--burgundy);">บูรพวิเทหทวีป</td>
+              <td style="padding:10px 12px;">ตะวันออก</td>
+              <td style="padding:10px 12px;">รูปวงกลม</td>
+              <td style="padding:10px 12px;">สิริสะ (ต้นซึก)</td>
+              <td style="padding:10px 12px; color:var(--burgundy); font-weight:600;">๗๐๐ ปี</td>
+            </tr>
+            <tr style="border-bottom:1px solid var(--border);">
+              <td style="padding:10px 12px; font-weight:600; color:var(--burgundy);">อุตตรกุรุทวีป</td>
+              <td style="padding:10px 12px;">เหนือ</td>
+              <td style="padding:10px 12px;">รูปสี่เหลี่ยม</td>
+              <td style="padding:10px 12px;">กัลปพฤกษ์</td>
+              <td style="padding:10px 12px; color:var(--burgundy); font-weight:600;">๑,๐๐๐ ปี</td>
+            </tr>
+            <tr>
+              <td style="padding:10px 12px; font-weight:600; color:var(--burgundy);">อมรโคยานทวีป</td>
+              <td style="padding:10px 12px;">ตะวันตก</td>
+              <td style="padding:10px 12px;">รูปพระจันทร์ครึ่งดวง</td>
+              <td style="padding:10px 12px;">กะทัมพะ (ต้นกระทุ่ม)</td>
+              <td style="padding:10px 12px; color:var(--burgundy); font-weight:600;">๔๐๐ ปี</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- HELL 8 LEVELS -->
+  <section class="section" id="hell">
+    <h2 class="section-title"><span class="icon">🔥</span>นรกภูมิ — ขุมนรก ๘ ขุม (อัฏฐมหานรก)</h2>
+    <p style="margin-bottom:1.5rem; color:var(--text-light); font-size:15px;">
+      นรกในไตรภูมิพระร่วงตั้งอยู่ใต้พื้นแผ่นดินชมพูทวีป มี <strong>มหานรก ๘ ขุม</strong> เรียงซ้อนกันลงไปตามลำดับ
+      แต่ละขุมมีความทุกข์ทรมานมากขึ้นตามลำดับชั้น ขุมที่ลึกและโหดร้ายที่สุดคือ <strong>อเวจีมหานรก</strong>
+    </p>
+
+    <!-- Hell pyramid diagram -->
+    <div style="max-width:600px; margin:0 auto 2rem;">
+      <div style="text-align:center; margin-bottom:8px;">
+        <span style="font-size:13px; color:var(--text-light);">↑ ชมพูทวีป (โลกมนุษย์) อยู่เหนือขึ้นไป ↑</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:3px;">
+        <div style="background:#4A1A0A; color:#FFB08A; padding:10px 16px; border-radius:8px 8px 0 0; display:flex; justify-content:space-between; align-items:center; font-size:14px;"><span>๑. สัญชีพนรก</span><span style="font-size:12px; opacity:0.8;">ตายแล้วฟื้น ถูกทรมานซ้ำ</span></div>
+        <div style="background:#5A1F0A; color:#FFB08A; padding:10px 16px; display:flex; justify-content:space-between; align-items:center; font-size:14px;"><span>๒. กาฬสุตตนรก</span><span style="font-size:12px; opacity:0.8;">ถูกเชือกดำตัดร่างกาย</span></div>
+        <div style="background:#6B2410; color:#FFC09A; padding:10px 16px; display:flex; justify-content:space-between; align-items:center; font-size:14px;"><span>๓. สังฆาตนรก</span><span style="font-size:12px; opacity:0.8;">ถูกภูเขาหินบดขยี้</span></div>
+        <div style="background:#7C2910; color:#FFC09A; padding:10px 16px; display:flex; justify-content:space-between; align-items:center; font-size:14px;"><span>๔. โรรุวนรก</span><span style="font-size:12px; opacity:0.8;">ถูกเผาไฟ ร้องไห้โหยหวน</span></div>
+        <div style="background:#8B2E10; color:#FFD0AA; padding:10px 16px; display:flex; justify-content:space-between; align-items:center; font-size:14px;"><span>๕. มหาโรรุวนรก</span><span style="font-size:12px; opacity:0.8;">ทุกข์ทรมานมากกว่าโรรุว</span></div>
+        <div style="background:#9C3310; color:#FFD0AA; padding:10px 16px; display:flex; justify-content:space-between; align-items:center; font-size:14px;"><span>๖. ตาปนนรก</span><span style="font-size:12px; opacity:0.8;">ถูกความร้อนแผดเผาตลอดเวลา</span></div>
+        <div style="background:#AD3810; color:#FFE0BB; padding:10px 16px; display:flex; justify-content:space-between; align-items:center; font-size:14px;"><span>๗. มหาตาปนนรก</span><span style="font-size:12px; opacity:0.8;">ร้อนยิ่งกว่าตาปนนรก</span></div>
+        <div style="background:#C8200A; color:#fff; padding:14px 16px; border-radius:0 0 8px 8px; display:flex; justify-content:space-between; align-items:center; font-size:15px; font-weight:700; border:2px solid #FF4422;"><span>🔥 ๘. อเวจีมหานรก</span><span style="font-size:13px; font-weight:400;">ลึกที่สุด ทุกข์ทรมานมากที่สุด ไม่มีช่องว่าง</span></div>
+      </div>
+      <div style="text-align:center; margin-top:8px;">
+        <span style="font-size:13px; color:var(--text-light);">↓ ลึกลงไปใต้พื้นแผ่นดิน ↓</span>
+      </div>
+    </div>
+
+    <!-- Hell details cards -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1rem;">
+      <div style="background:var(--section-bg); border:1px solid var(--border); border-left:4px solid #8B2E10; border-radius:12px; padding:1.25rem;">
+        <h4 style="font-family:'Noto Serif Thai',serif; color:#8B2E10; font-size:1rem; margin-bottom:8px;">๑. สัญชีพนรก</h4>
+        <p style="font-size:14px; color:var(--text-light); line-height:1.7;">สัตว์นรกจะถูกทรมานจนตาย แต่มีลมพัดให้ฟื้นขึ้นมาแล้วถูกทรมานซ้ำอีก วนเวียนไม่รู้จบจนกว่าจะหมดกรรม เหมาะสำหรับผู้ที่เคยฆ่าสัตว์</p>
+      </div>
+      <div style="background:var(--section-bg); border:1px solid var(--border); border-left:4px solid #8B2E10; border-radius:12px; padding:1.25rem;">
+        <h4 style="font-family:'Noto Serif Thai',serif; color:#8B2E10; font-size:1rem; margin-bottom:8px;">๒. กาฬสุตตนรก</h4>
+        <p style="font-size:14px; color:var(--text-light); line-height:1.7;">ถูกนายนิรยบาลขีดเส้นด้วยเชือกดำ (กาฬสุตต) แล้วเอาขวานตัดตามแนวเส้น ทรมานผู้ที่เคยฆ่าสัตว์ใหญ่หรือทำชีวิตมนุษย์</p>
+      </div>
+      <div style="background:var(--section-bg); border:1px solid var(--border); border-left:4px solid #9C3310; border-radius:12px; padding:1.25rem;">
+        <h4 style="font-family:'Noto Serif Thai',serif; color:#9C3310; font-size:1rem; margin-bottom:8px;">๓. สังฆาตนรก</h4>
+        <p style="font-size:14px; color:var(--text-light); line-height:1.7;">มีภูเขาหินขนาดใหญ่บดขยี้สัตว์นรกตลอดเวลา คล้ายการอัดสัตว์ไว้ระหว่างภูเขาสองลูกที่กระทบกัน ทรมานผู้ที่ทำร้ายผู้บริสุทธิ์</p>
+      </div>
+      <div style="background:var(--section-bg); border:1px solid var(--border); border-left:4px solid #9C3310; border-radius:12px; padding:1.25rem;">
+        <h4 style="font-family:'Noto Serif Thai',serif; color:#9C3310; font-size:1rem; margin-bottom:8px;">๔. โรรุวนรก</h4>
+        <p style="font-size:14px; color:var(--text-light); line-height:1.7;">สัตว์นรกถูกเผาไฟและส่งเสียงร้องโหยหวนอย่างหาที่สุดมิได้ "โรรุว" แปลว่า "ร้องไห้โหยหวน" ทรมานผู้ที่เคยเบียดเบียนผู้อื่น</p>
+      </div>
+      <div style="background:var(--section-bg); border:1px solid var(--border); border-left:4px solid #AD3810; border-radius:12px; padding:1.25rem;">
+        <h4 style="font-family:'Noto Serif Thai',serif; color:#AD3810; font-size:1rem; margin-bottom:8px;">๕. มหาโรรุวนรก</h4>
+        <p style="font-size:14px; color:var(--text-light); line-height:1.7;">ความทุกข์ทรมานเหมือนโรรุวนรก แต่มีความรุนแรงมากกว่าหลายเท่า ไฟที่เผาไหม้มีความร้อนสูงกว่า สัตว์นรกร้องโหยหวนดังกว่า</p>
+      </div>
+      <div style="background:var(--section-bg); border:1px solid var(--border); border-left:4px solid #AD3810; border-radius:12px; padding:1.25rem;">
+        <h4 style="font-family:'Noto Serif Thai',serif; color:#AD3810; font-size:1rem; margin-bottom:8px;">๖. ตาปนนรก</h4>
+        <p style="font-size:14px; color:var(--text-light); line-height:1.7;">"ตาปน" แปลว่า "ความร้อน" สัตว์นรกถูกแทงด้วยหลาวเหล็กที่ลุกเป็นไฟแดงจากเบื้องล่างสู่เบื้องบน ทรมานผู้ที่ทำบาปหนักยิ่งขึ้น</p>
+      </div>
+      <div style="background:var(--section-bg); border:1px solid var(--border); border-left:4px solid #C8200A; border-radius:12px; padding:1.25rem;">
+        <h4 style="font-family:'Noto Serif Thai',serif; color:#C8200A; font-size:1rem; margin-bottom:8px;">๗. มหาตาปนนรก</h4>
+        <p style="font-size:14px; color:var(--text-light); line-height:1.7;">ความร้อนและทรมานมากกว่าตาปนนรกอีกมากมาย เป็นนรกที่ผู้ทำบาปหนักมากต้องรับโทษ ก่อนจะถึงขุมสุดท้ายคืออเวจี</p>
+      </div>
+      <div style="background:#FFF0EE; border:2px solid #C8200A; border-radius:12px; padding:1.25rem;">
+        <h4 style="font-family:'Noto Serif Thai',serif; color:#C8200A; font-size:1.1rem; margin-bottom:8px;">🔥 ๘. อเวจีมหานรก</h4>
+        <p style="font-size:14px; color:var(--text-light); line-height:1.7;">
+          นรกขุมลึกที่สุดและโหดร้ายที่สุด <strong>"อเวจี"</strong> แปลว่า "ไม่มีช่องว่าง" ทุกทิศทุกทางเต็มไปด้วยไฟนรก
+          สัตว์นรกถูกเผาตลอดเวลาโดยไม่มีช่วงพัก ลึกได้ ๑๐๐ โยชน์
+          สำหรับผู้ทำ <strong>อนันตริยกรรม</strong> คือกรรมหนักที่สุด ๕ ประการ ได้แก่ ฆ่าบิดา ฆ่ามารดา ฆ่าพระอรหันต์ ทำพระพุทธเจ้าให้ห้อเลือด และทำสงฆ์ให้แตกแยก
+        </p>
+      </div>
+    </div>
+
+    <!-- ยมบาล note -->
+    <div style="margin-top:1.5rem; background:var(--section-bg); border:1px solid var(--border); border-radius:12px; padding:1.25rem; display:flex; gap:1rem; align-items:flex-start;">
+      <span style="font-size:2rem; flex-shrink:0;">⚖️</span>
+      <div>
+        <h4 style="font-family:'Noto Serif Thai',serif; font-size:1rem; color:var(--burgundy); margin-bottom:6px;">ยมบาล — ผู้พิพากษาแห่งนรก</h4>
+        <p style="font-size:14px; color:var(--text-light); line-height:1.7;">
+          ในไตรภูมิพระร่วงกล่าวว่า เมื่อทารกคลอด ยมบาลจะ "กุมตีแลหย่อนหัวลงในขุมนรก" เปรียบกับการพลิกหัวทารกลงมาในเวลาคลอด
+          นอกจากนี้ยังมี <strong>อุสสทนรก</strong> คือนรกบริวารรอบมหานรกแต่ละขุม ๆ ละ ๔ แห่ง รวม ๓๒ แห่ง รวมทั้งสิ้นเป็น ๔๐ แห่ง
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE -->
+  <section class="section" id="value">
+    <h2 class="section-title"><span class="icon">✨</span>คุณค่าของเรื่อง</h2>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="value-card-header">
+          <div class="value-icon" style="background:#FFF5E6;">🖊️</div>
+          <h4>ด้านวรรณศิลป์</h4>
+        </div>
+        <ul>
+          <li>หลักฐานว่าไทยรู้จักแต่งวรรณคดีตั้งแต่สมัยสุโขทัย</li>
+          <li>ร้อยแก้วมีสัมผัสคล้องจอง เช่น "อยู่เย็นเป็นสุขสำราญบานใจ"</li>
+          <li>ใช้คำเป็นจังหวะน่าฟัง "เย็นเนื้อเย็นใจ"</li>
+          <li>อุปมาโวหารที่ทรงพลัง เช่น เปรียบทารกในครรภ์กับลิงฝนตก</li>
+        </ul>
+      </div>
+      <div class="value-card">
+        <div class="value-card-header">
+          <div class="value-icon" style="background:#EFF5E6;">🌍</div>
+          <h4>ด้านภูมิศาสตร์</h4>
+        </div>
+        <ul>
+          <li>บันทึกความรู้ภูมิศาสตร์โบราณ โลกมี ๔ ทวีป</li>
+          <li>ชมพูทวีป บุรพวิเทหทวีป อุตรกุรุทวีป อมรโคยานทวีป</li>
+          <li>มีเขาพระสุเมรุเป็นศูนย์กลางจักรวาล</li>
+        </ul>
+      </div>
+      <div class="value-card">
+        <div class="value-card-header">
+          <div class="value-icon" style="background:#F0F0FF;">🏛️</div>
+          <h4>ด้านสังคมและวัฒนธรรม</h4>
+        </div>
+        <ul>
+          <li>สอนให้คนทำบุญละบาป — ทำบุญได้ขึ้นสวรรค์ ทำบาปตกนรก</li>
+          <li>เป็นแนวสอนศีลธรรมที่มีอิทธิพลต่อสังคมไทยมาช้านาน</li>
+          <li>กำหนดกรอบการประพฤติปฏิบัติทั้งผู้ปกครองและผู้ถูกปกครอง</li>
+        </ul>
+      </div>
+      <div class="value-card">
+        <div class="value-card-header">
+          <div class="value-icon" style="background:#FFF0F5;">🎨</div>
+          <h4>ด้านศิลปกรรม</h4>
+        </div>
+        <ul>
+          <li>จิตรกรนำไปเขียนภาพสีในโบสถ์และวิหาร</li>
+          <li>ภาพนรกอยู่ผนังด้านล่าง ภาพสวรรค์อยู่เบื้องบน</li>
+          <li>พื้นฐานของงานจิตรกรรมไทยแบบดั้งเดิม</li>
+        </ul>
+      </div>
+      <div class="value-card">
+        <div class="value-card-header">
+          <div class="value-icon" style="background:#FFF8E6;">🎎</div>
+          <h4>ด้านประเพณีและวัฒนธรรม</h4>
+        </div>
+        <ul>
+          <li>จัดดอกไม้ธูปเทียนให้คนตาย เพื่อสักการะพระจุฬามณีเจดีย์</li>
+          <li>การเผาศพในเมรุ เปรียบเหมือนขึ้นเขาพระสุเมรุสู่สวรรค์</li>
+          <li>ความเชื่อเรื่องกรรมและการเวียนว่ายตายเกิด</li>
+        </ul>
+      </div>
+      <div class="value-card">
+        <div class="value-card-header">
+          <div class="value-icon" style="background:#EDF5FF;">🔬</div>
+          <h4>ด้านวิทยาศาสตร์</h4>
+        </div>
+        <ul>
+          <li>บรรยายพัฒนาการทารกในครรภ์ที่แม่นยำอย่างน่าทึ่ง</li>
+          <li>กล่าวถึง "ลมกรรมชวาต" คล้าย Braxton Hicks contractions</li>
+          <li>อธิบายสายสะดือและการรับอาหารของทารก</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIZ -->
+  <section class="section" id="quiz">
+    <h2 class="section-title"><span class="icon">📝</span>แบบทดสอบ</h2>
+    <div class="quiz-section">
+      <p class="quiz-title">ทบทวนความเข้าใจ — ไตรภูมิพระร่วง ตอน มนุสสภูมิ</p>
+
+      <div class="question-block">
+        <div class="question-num">ข้อที่ ๑</div>
+        <div class="question-text">ผู้แต่งไตรภูมิพระร่วงคือใคร และเป็นกษัตริย์องค์ที่เท่าไรของสุโขทัย?</div>
+        <div class="options">
+          <button class="option" data-q="1" data-correct="false">ก. พ่อขุนรามคำแหง — กษัตริย์องค์ที่ ๓</button>
+          <button class="option" data-q="1" data-correct="true">ข. พระมหาธรรมราชาที่ ๑ (พระยาลิไทย) — กษัตริย์องค์ที่ ๖</button>
+          <button class="option" data-q="1" data-correct="false">ค. พระยาเลอไทย — กษัตริย์องค์ที่ ๕</button>
+          <button class="option" data-q="1" data-correct="false">ง. พระยาเลอไทย — กษัตริย์องค์ที่ ๖</button>
+        </div>
+        <div class="feedback" id="fb-1"></div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-num">ข้อที่ ๒</div>
+        <div class="question-text">ไตรภูมิพระร่วงเป็นคำประพันธ์ประเภทใด?</div>
+        <div class="options">
+          <button class="option" data-q="2" data-correct="false">ก. โคลงสี่สุภาพ</button>
+          <button class="option" data-q="2" data-correct="false">ข. ฉันท์วิชชุมมาลา</button>
+          <button class="option" data-q="2" data-correct="true">ค. ร้อยแก้วประเภทความเรียงที่มีสัมผัสคล้องจอง</button>
+          <button class="option" data-q="2" data-correct="false">ง. กลอนสุภาพ</button>
+        </div>
+        <div class="feedback" id="fb-2"></div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-num">ข้อที่ ๓</div>
+        <div class="question-text">สวรรค์ชั้นที่ ๒ "ดาวดึงส์" มีเทพองค์ใดเป็นจอมเทพ?</div>
+        <div class="options">
+          <button class="option" data-q="3" data-correct="false">ก. ท้าวสุยามะ</button>
+          <button class="option" data-q="3" data-correct="false">ข. ท้าวสันดุสิต</button>
+          <button class="option" data-q="3" data-correct="true">ค. พระอินทร์ (ท้าวสักกะ)</button>
+          <button class="option" data-q="3" data-correct="false">ง. ท้าวธตรฐ</button>
+        </div>
+        <div class="feedback" id="fb-3"></div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-num">ข้อที่ ๔</div>
+        <div class="question-text">ทารกที่คลอดออกมาแล้ว "หัวเราะก่อน" แสดงว่ามาจากที่ใด?</div>
+        <div class="options">
+          <button class="option" data-q="4" data-correct="false">ก. มาจากนรก</button>
+          <button class="option" data-q="4" data-correct="false">ข. มาจากเปรตภูมิ</button>
+          <button class="option" data-q="4" data-correct="false">ค. มาจากเดรัจฉาน</button>
+          <button class="option" data-q="4" data-correct="true">ง. มาจากสวรรค์</button>
+        </div>
+        <div class="feedback" id="fb-4"></div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-num">ข้อที่ ๕</div>
+        <div class="question-text">"เบญจสาขาหูด" ในไตรภูมิพระร่วง หมายถึงอะไร?</div>
+        <div class="options">
+          <button class="option" data-q="5" data-correct="false">ก. ก้อนเนื้อที่มีขนาดเท่าไข่ไก่</button>
+          <button class="option" data-q="5" data-correct="true">ข. ก้อนเนื้อที่มีปุ่ม ๕ แห่ง คือ หัว แขน ๒ ขา ๒</button>
+          <button class="option" data-q="5" data-correct="false">ค. ชิ้นเนื้อที่ข้นคล้ายตะกั่ว</button>
+          <button class="option" data-q="5" data-correct="false">ง. รูปแรกเริ่มเล็กมากเหมือนน้ำล้างเนื้อ</button>
+        </div>
+        <div class="feedback" id="fb-5"></div>
+      </div>
+
+      <div class="question-block">
+        <div class="question-num">ข้อที่ ๖</div>
+        <div class="question-text">"อภิชาตบุตร" หมายความว่าอย่างไร?</div>
+        <div class="options">
+          <button class="option" data-q="6" data-correct="false">ก. บุตรที่ด้อยกว่าบิดามารดา</button>
+          <button class="option" data-q="6" data-correct="false">ข. บุตรที่เสมอเหมือนบิดามารดา</button>
+          <button class="option" data-q="6" data-correct="true">ค. บุตรที่ประเสริฐกว่าบิดามารดา</button>
+          <button class="option" data-q="6" data-correct="false">ง. บุตรที่แรกเกิดในตระกูล</button>
+        </div>
+        <div class="feedback" id="fb-6"></div>
+      </div>
+
+      <button class="btn-check" onclick="checkAnswers()">ตรวจคำตอบ</button>
+      <button class="btn-reset" id="btn-reset" onclick="resetQuiz()">เริ่มใหม่</button>
+
+      <div class="quiz-score" id="quiz-score">
+        <div class="score-num" id="score-num">0/6</div>
+        <p id="score-msg"></p>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <p>สื่อการสอน <strong>ไตรภูมิพระร่วง ตอน มนุสสภูมิ</strong> — ภาษาไทย ม.6</p>
+  <p style="margin-top:4px;">ครูผู้สอน <strong>นายวิชชากร แสงเพชรอ่อน</strong> &nbsp;|&nbsp; จัดทำเพื่อประกอบการเรียนการสอนวิชาภาษาไทย ระดับชั้นมัธยมศึกษาปีที่ ๖</p>
+</footer>
+
+<script>
+const answers = { 1: null, 2: null, 3: null, 4: null, 5: null, 6: null };
+const explanations = {
+  1: 'พระมหาธรรมราชาที่ ๑ หรือพระยาลิไทย เป็นกษัตริย์องค์ที่ ๖ ของสุโขทัย ราชวงศ์พระร่วง',
+  2: 'ไตรภูมิพระร่วงแต่งเป็นร้อยแก้วความเรียงที่มีสัมผัสคล้องจอง ไม่ใช่กลอนหรือโคลง',
+  3: 'ดาวดึงส์เป็นสวรรค์ที่อยู่ของพระอินทร์ (ท้าวสักกะ) มีบริวาร ๓๒ องค์',
+  4: 'ทารกที่มาจากสวรรค์จะคำนึงถึงความสุขในอดีต จึงหัวเราะเมื่อคลอด ส่วนทารกจากนรกจะร้องไห้',
+  5: 'เบญจสาขาหูด คือก้อนเนื้อที่มีปุ่มเกิดขึ้น ๕ ปุ่ม ได้แก่ หัว ๑ ปุ่ม แขน ๒ ปุ่ม ขา ๒ ปุ่ม ปรากฏเมื่ออายุครรภ์ ๒๘ วัน',
+  6: 'อภิชาตบุตร แปลว่า บุตรที่ประเสริฐกว่าบิดามารดา ฉลาดเฉลียว มีรูปงามหรือมั่งมียศยิ่งกว่าพ่อแม่'
+};
+
+document.querySelectorAll('.option').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const q = this.dataset.q;
+    if (answers[q] !== null) return;
+    answers[q] = this.dataset.correct === 'true';
+    const siblings = document.querySelectorAll(`.option[data-q="${q}"]`);
+    siblings.forEach(s => {
+      s.disabled = true;
+      if (s.dataset.correct === 'true') s.classList.add('correct');
+      else if (s === this && !answers[q]) s.classList.add('wrong');
+    });
+    const fb = document.getElementById('fb-' + q);
+    fb.textContent = (answers[q] ? '✅ ถูกต้อง! ' : '❌ ไม่ถูกต้อง — ') + explanations[q];
+    fb.className = 'feedback show ' + (answers[q] ? 'correct-fb' : 'wrong-fb');
+  });
+});
+
+function checkAnswers() {
+  const answered = Object.values(answers).filter(v => v !== null).length;
+  if (answered < 6) { alert('กรุณาตอบให้ครบทุกข้อก่อนนะคะ 😊'); return; }
+  const score = Object.values(answers).filter(Boolean).length;
+  const scoreEl = document.getElementById('quiz-score');
+  document.getElementById('score-num').textContent = score + '/6';
+  let msg = '';
+  if (score === 6) msg = '🎉 ยอดเยี่ยมมาก! คะแนนเต็ม ความเข้าใจดีเลิศ';
+  else if (score >= 4) msg = '👍 ดีมาก! เข้าใจเนื้อหาได้เป็นอย่างดี';
+  else if (score >= 2) msg = '📖 พอใช้ได้ ลองทบทวนเนื้อหาอีกครั้งนะคะ';
+  else msg = '💪 ยังต้องฝึกฝนอีก! กลับไปอ่านเนื้อหาแล้วลองใหม่นะคะ';
+  document.getElementById('score-msg').textContent = msg;
+  scoreEl.classList.add('show');
+  document.querySelector('.btn-check').style.display = 'none';
+  document.getElementById('btn-reset').classList.add('show');
+}
+
+function resetQuiz() {
+  for (let k in answers) answers[k] = null;
+  document.querySelectorAll('.option').forEach(b => {
+    b.disabled = false;
+    b.classList.remove('correct', 'wrong');
+  });
+  document.querySelectorAll('.feedback').forEach(f => {
+    f.textContent = '';
+    f.className = 'feedback';
+  });
+  document.getElementById('quiz-score').classList.remove('show');
+  document.querySelector('.btn-check').style.display = 'block';
+  document.getElementById('btn-reset').classList.remove('show');
+}
+</script>
+
+<div style="position:fixed;bottom:10px;right:10px;background:#8b6420;color:white;padding:6px 12px;border-radius:20px;font-size:12px;z-index:9999;">
+ครูวิชชากร แสงเพชรอ่อน
+</div>
+
+</body>
+</html>
